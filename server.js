@@ -1,10 +1,12 @@
 import dotenv from "dotenv";
 import express from "express";
 import cors from "cors";
+import connectToMahootDatabase from "./database/connection.js";
 
 dotenv.config();
 
 //connect to database
+connectToMahootDatabase();
 
 const app = express();
 
