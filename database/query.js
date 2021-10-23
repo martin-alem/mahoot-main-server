@@ -48,9 +48,9 @@ async function findAndUpdate(model, filter, data) {
   }
 }
 
-async function findAll(model) {
+async function findAll(model, query) {
   try {
-    const result = await model.find({});
+    const result = await model.find(query);
     return result;
   } catch (error) {
     Logger.log("I am Here Error", error, import.meta.url);
