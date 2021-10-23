@@ -10,7 +10,7 @@ const QuestionSchema = new mongoose.Schema({
     required: false,
     default: "",
   },
-  answer: {
+  answers: {
     type: [
       {
         answer: { type: String, required: true },

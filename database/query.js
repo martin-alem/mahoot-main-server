@@ -20,6 +20,24 @@ async function insertOne(model, data) {
   }
 }
 
+function insertMany(model, data) {
+  const options = {
+    ordered: false,
+    rawResult: false,
+    lean: true,
+    limit: 5,
+  };
+  return new Promise((resolve, reject) => {
+    model.insertMany(data, options, (error, docs) => {
+      if (error) {
+        reject(error);
+      } else {
+        resolve(docs);
+      }
+    });
+  });
+}
+
 async function findAndUpdate(model, filter, data) {
   try {
     const document = await model.findOneAndUpdate(filter, data, { new: true });
@@ -50,4 +68,4 @@ async function findAllWithFilter(model, filter) {
   }
 }
 
-export { findOne, insertOne, findAndUpdate, findAll, findAllWithFilter };
+export { findOne, insertOne, findAndUpdate, findAll, findAllWithFilter, insertMany };

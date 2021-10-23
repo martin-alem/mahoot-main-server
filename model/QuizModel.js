@@ -13,10 +13,6 @@ const QuizSchema = new mongoose.Schema({
     type: mongoose.ObjectId,
     required: true,
   },
-  coverColor: {
-    type: String,
-    required: true,
-  },
   date: {
     type: Date,
     required: true,
