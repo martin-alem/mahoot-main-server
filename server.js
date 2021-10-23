@@ -4,6 +4,7 @@ import cors from "cors";
 import cookieParser from "cookie-parser";
 import connectToMahootDatabase from "./database/connection.js";
 import quizRouter from "./routes/quizRoute.js";
+import questionRouter from "./routes/questionRoute.js";
 import authMiddleware from "./middleware/authMiddleware.js";
 
 dotenv.config();
@@ -28,6 +29,7 @@ app.get("/", authMiddleware, (req, res) => {
 });
 
 app.use("/api/v1/quiz", quizRouter);
+app.use("/api/v1/question", questionRouter);
 
 app.all("*", (req, res) => {
   res.status(404).json({ status: 404, statusText: "fail", message: "The path you are requesting does not exist" });

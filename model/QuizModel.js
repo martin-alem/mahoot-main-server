@@ -13,6 +13,11 @@ const QuizSchema = new mongoose.Schema({
     type: mongoose.ObjectId,
     required: true,
   },
+  plays: {
+    type: Number,
+    required: false,
+    default: 0
+  },
   date: {
     type: Date,
     required: true,
