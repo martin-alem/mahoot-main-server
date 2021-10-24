@@ -15,3 +15,4 @@ async function getAllQuizzesController(req, res, next) {
 }
 
 export default getAllQuizzesController;
+

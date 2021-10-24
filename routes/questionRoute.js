@@ -9,7 +9,6 @@ router.use(authMiddleware);
 router.route("/:quizId").get(getAllQuestionsController);
 router
   .route("/")
-  .post((req, res) => res.json({ message: "POST Successfully reached" }))
   .delete((req, res) => res.json({ message: "DELETE Successfully reached" }))
   .put((req, res) => res.json({ message: "PUT Successfully reached" }));
 
