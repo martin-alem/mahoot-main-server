@@ -5,6 +5,7 @@ import cookieParser from "cookie-parser";
 import connectToMahootDatabase from "./database/connection.js";
 import quizRouter from "./routes/quizRoute.js";
 import questionRouter from "./routes/questionRoute.js";
+import authMiddleware from "./middleware/authMiddleware.js";
 
 dotenv.config();
 
@@ -23,8 +24,8 @@ app.use(cors(corsOptions));
 app.use(cookieParser());
 app.use(express.json());
 
-app.get("/",(req, res) => {
-  res.status(200).json({ status: 200, statusText: "OK", message: "Main server up and running" });
+app.get("/", authMiddleware, (req, res) => {
+  res.status(200).json({ status: 200, statusText: "OK", message: req.body.user });
 });
 
 app.use("/api/v1/quiz", quizRouter);
