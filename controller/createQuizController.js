@@ -29,7 +29,7 @@ function modifyQuestions(questions, quizId) {
       title: question.title,
       media: question.media,
       answers: question.answers,
-      questionType: question.type,
+      questionType: question.questionType,
       duration: question.duration,
       quizId: quizId,
       date: new Date(),

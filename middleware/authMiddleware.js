@@ -6,7 +6,7 @@ import { findOne } from "./../database/query.js";
 
 async function authMiddleware(req, res, next) {
   try {
-    const { _access_token } = req.cookies;
+    const { _access_token } = req.body.access_token;
     try {
       const { user_id } = jwt.verify(_access_token, process.env.JWT_SECRET);
       const result = await findOne(User, { _id: user_id });

@@ -15,6 +15,7 @@ const QuestionSchema = new mongoose.Schema({
       {
         answer: { type: String, required: true },
         correct: { type: Boolean, required: true },
+        shape: { type: String, required: true },
       },
     ],
     required: true,

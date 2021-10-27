@@ -35,6 +35,10 @@ app.all("*", (req, res) => {
   res.status(404).json({ status: 404, statusText: "fail", message: "The path you are requesting does not exist" });
 });
 
+app.use((error, req, res, next) => {
+  res.status(error.statusCode).json({ status: "fail", statusCode: error.statusCode, message: error.message });
+});
+
 const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => {
   console.log("Main server listening on port " + PORT);
