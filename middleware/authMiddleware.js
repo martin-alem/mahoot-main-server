@@ -6,9 +6,9 @@ import { findOne } from "./../database/query.js";
 
 async function authMiddleware(req, res, next) {
   try {
-    const { _access_token } = req.body.access_token;
+    const { access_token } = req.query;
     try {
-      const { user_id } = jwt.verify(_access_token, process.env.JWT_SECRET);
+      const { user_id } = jwt.verify(access_token, process.env.JWT_SECRET);
       const result = await findOne(User, { _id: user_id });
       if (!result) {
         next(new ErrorHandler("Unauthorized access", 401));

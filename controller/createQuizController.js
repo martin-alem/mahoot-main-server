@@ -32,6 +32,7 @@ function modifyQuestions(questions, quizId) {
       questionType: question.questionType,
       duration: question.duration,
       quizId: quizId,
+      points: question.point,
       date: new Date(),
     };
   });
